@@ -55,7 +55,7 @@ export default class App {
     const authRouter = new AuthRouter();
 
     this.app.get('/api', (req: Request, res: Response) => {
-      res.send(`Hello, Purwadhika Student !`);
+      res.send(`Hi, Welcome to Event Ticketing API`);
     });
 
     // this.app.use('/api/samples', sampleRouter.getRouter());
