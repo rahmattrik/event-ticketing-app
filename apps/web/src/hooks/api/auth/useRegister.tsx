@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 
 interface RegisterArgs extends Omit<User, 'id'> {
     password: string;
+    referralCode?: string;
 }
 
 const useRegister = () => {

@@ -67,7 +67,7 @@ export const registerService = async (
                 if (!referredUser) {
                     throw new Error ("Referral code not found or invalid");
                 } else {
-                    const earnDate = new Date();
+                    const earnDate = new Date(Date.now());
                     const currentPoint = referredUser.point?.totalPoint || BigInt(0);
                     const currentExpiredDate = referredUser.point?.expiredDate || null;
 
@@ -78,8 +78,8 @@ export const registerService = async (
                         );
                     } else {
                         expiredDate = new Date(
-                            // currentExpiredDate.getTime() + (90 * 24 * 60 * 60 * 1000)
-                            earnDate.getTime() + (90 * 24 * 60 * 60 * 1000)
+                            currentExpiredDate.getTime() + (90 * 24 * 60 * 60 * 1000)
+                            // earnDate.getTime() + (90 * 24 * 60 * 60 * 1000)
                         );
                     }
 
@@ -88,7 +88,7 @@ export const registerService = async (
                         data: {
                           totalPoint: currentPoint + BigInt(10000),
                           earnDate: new Date(Date.now()),
-                          expiredDate: expiredDate,
+                          expiredDate,
                         },
                     });
           
@@ -100,7 +100,7 @@ export const registerService = async (
                         },
                     });
                     
-                }                
+                }
             }
         });
 

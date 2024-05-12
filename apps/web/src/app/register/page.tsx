@@ -9,7 +9,7 @@ import useRegister from '@/hooks/api/auth/useRegister';
 
 const Register: React.FC = () => {
   const { register } = useRegister();
-  const formik = useFormik({
+  const { values, errors, touched, handleChange, handleBlur,  handleSubmit} = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
@@ -33,18 +33,18 @@ const Register: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <div className="grid w-full items-center gap-4">
                 {/* FIRST NAME */}
                 <FormInput
                                   name="firstName"
-                                  error={formik.errors.firstName}
-                                  isError={!!formik.touched.firstName && !!formik.errors.firstName}
-                                  handleBlur={formik.handleBlur}
-                                  handleChange={formik.handleChange}
+                                  error={errors.firstName}
+                                  isError={!!touched.firstName && !!errors.firstName}
+                                  handleBlur={handleBlur}
+                                  handleChange={handleChange}
                                   placeholder="First Name"
                                   type="name"
-                                  value={formik.values.firstName} 
+                                  value={values.firstName} 
                                   label={'First Name'}                
                 />
                 {/* FIRST NAME END */}
@@ -52,13 +52,13 @@ const Register: React.FC = () => {
                 {/* LAST NAME */}
                 <FormInput
                                   name="lastName"
-                                  error={formik.errors.lastName}
-                                  isError={!!formik.touched.lastName && !!formik.errors.lastName}
-                                  handleBlur={formik.handleBlur}
-                                  handleChange={formik.handleChange}
+                                  error={errors.lastName}
+                                  isError={!!touched.lastName && !!errors.lastName}
+                                  handleBlur={handleBlur}
+                                  handleChange={handleChange}
                                   placeholder="Last Name"
                                   type="name"
-                                  value={formik.values.lastName} 
+                                  value={values.lastName} 
                                   label={'Last Name'}                
                 />
                 {/* LAST NAME END */}
@@ -66,13 +66,13 @@ const Register: React.FC = () => {
                 {/* EMAIL */}
                 <FormInput
                                   name="email"
-                                  error={formik.errors.email}
-                                  isError={!!formik.touched.email && !!formik.errors.email}
-                                  handleBlur={formik.handleBlur}
-                                  handleChange={formik.handleChange}
+                                  error={errors.email}
+                                  isError={!!touched.email && !!errors.email}
+                                  handleBlur={handleBlur}
+                                  handleChange={handleChange}
                                   placeholder="Email"
                                   type="email"
-                                  value={formik.values.email} 
+                                  value={values.email} 
                                   label={'Email'}                
                 />
                 {/* EMAIL END */}
@@ -80,13 +80,13 @@ const Register: React.FC = () => {
                 {/* PASSWORD */}
                 <FormInput
                                   name="password"
-                                  error={formik.errors.password}
-                                  isError={!!formik.touched.password && !!formik.errors.password}
-                                  handleBlur={formik.handleBlur}
-                                  handleChange={formik.handleChange}
+                                  error={errors.password}
+                                  isError={!!touched.password && !!errors.password}
+                                  handleBlur={handleBlur}
+                                  handleChange={handleChange}
                                   placeholder="Password"
                                   type="password"
-                                  value={formik.values.password} 
+                                  value={values.password} 
                                   label={'Password'}                
                 />
                 {/* PASSWORD END */}
@@ -94,13 +94,13 @@ const Register: React.FC = () => {
                 {/* REFERRAL */}
                 <FormInput
                                   name="referralCode"
-                                  error={formik.errors.referralCode}
-                                  isError={!!formik.touched.referralCode && !!formik.errors.referralCode}
-                                  handleBlur={formik.handleBlur}
-                                  handleChange={formik.handleChange}
+                                  error={errors.referralCode}
+                                  isError={!!touched.referralCode && !!errors.referralCode}
+                                  handleBlur={handleBlur}
+                                  handleChange={handleChange}
                                   placeholder="Referral Code"
                                   type="text"
-                                  value={formik.values.referralCode} 
+                                  value={values.referralCode} 
                                   label={'Referral Code'}                
                 />
                 {/* REFERRAL END */}
